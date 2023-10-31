@@ -1,0 +1,11 @@
+{
+  "name": "api-consultorio-medico",
+  "version": "1.0.0",
+  "description": "Gestion-Citas-Medicas",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "author": "EdwinVillamil",
+  "license": "ISC"
+}
