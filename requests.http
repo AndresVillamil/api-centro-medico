@@ -1,0 +1,32 @@
+###
+POST http://localhost:3000/api/v1/pacientes HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Jorge",
+    "apellido": "Villamillamil",
+    "num_documento": "80978543",
+    "fecha_nacimiento": "01/01/2000",
+    "telefono": "2350987"
+}
+
+###
+GET http://localhost:3000/api/v1/pacientes HTTP/1.1
+
+###
+GET http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+
+###
+PUT http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Miguel",
+    "apellido": "Villamil",
+    "num_documento": "80978543",
+    "fecha_nacimiento": "01/01/2000",
+    "telefono": "2350987"
+}
+
+###
+DELETE http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
