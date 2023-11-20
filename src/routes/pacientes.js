@@ -1,13 +1,15 @@
 const express = require('express');
-const pacienteSchema = require('../models/pacientes')
-
 const router = express.Router();
+const pacienteSchema = require('../models/pacientes')
+const fs = require('fs')
+
+
 
 //crear paciente
 
-router.post('/pacientes', (req, res) => {
+router.post('/pacientes', async (req, res) => {
     //res.send("crear paciente")
-    const paciente = pacienteSchema(req.body);
+    const paciente = await pacienteSchema(req.body);
     paciente
         .save()
         .then((data) => res.json(data))
@@ -15,20 +17,23 @@ router.post('/pacientes', (req, res) => {
 })
 
 //get all pacientes
-router.get('/pacientes', (req, res) => {
+router.get('/pacientes',  async (req, res) => {
     //res.send("crear paciente")
    
-    pacienteSchema
+     await pacienteSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}))
+
+
+    
 })
 
 //get un paciente
-router.get('/pacientes/:id', (req, res) => {
+router.get('/pacientes/:id', async (req, res) => {
     //res.send("crear paciente")
-    const { id } = req.params;
-    pacienteSchema
+    const { id } = req.params; //Interpreta el valor que viene como parámetro
+    await pacienteSchema
         .findById(id)
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}))
@@ -36,22 +41,24 @@ router.get('/pacientes/:id', (req, res) => {
 
 
 //update un paciente
-router.put('/pacientes/:id', (req, res) => {
+router.put('/pacientes/:id', async (req, res) => {
     //res.send("crear paciente")
     const { id } = req.params;
     const { nombre, apellido, num_documento, fecha_nacimiento, telefono } = req.body
-    pacienteSchema
+    //const body= req.body
+    await pacienteSchema
+        //.findByIdAndUpdate(id, body , { useFindAndModify: false })
         .updateOne({ _id: id},{ $set:{nombre, apellido, num_documento, fecha_nacimiento, telefono}})
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}))
 })
 
 //delete un paciente
-router.delete('/pacientes/:id', (req, res) => {
+router.delete('/pacientes/:id', async (req, res) => {
     //res.send("crear paciente")
     const { id } = req.params;
     
-    pacienteSchema
+    await pacienteSchema
         .deleteOne({ _id: id})
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}))

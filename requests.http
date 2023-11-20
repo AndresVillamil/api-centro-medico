@@ -3,9 +3,9 @@ POST http://localhost:3000/api/v1/pacientes HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Pepe",
+    "nombre": "Octavio",
     "apellido": "Perez",
-    "num_documento": "80978543",
+    "num_documento": "90978343",
     "fecha_nacimiento": "2001-08-07",
     "telefono": "2350987"
 }
@@ -14,19 +14,32 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/pacientes HTTP/1.1
 
 ###
-GET http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+GET http://localhost:3000/api/v1/pacientes/6542baa2a80f746acda83136 HTTP/1.1
 
 ###
-PUT http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+PUT http://localhost:3000/api/v1/pacientes/6542baa2a80f746acda83136 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Miguel",
-    "apellido": "Villamil",
-    "num_documento": "80978543",
-    "fecha_nacimiento": "01/01/2000",
-    "telefono": "2350987"
+  "nombre": "Jorgito",
+  "apellido": "Villamil",
+  "num_documento": "80978543",
+  "fecha_nacimiento": "2000-01-01",
+  "telefono": "2350987"
 }
 
 ###
-DELETE http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+PATCH http://localhost:3000/api/v1/pacientes/655a7d3ba85405e79ace75af HTTP/1.1
+Content-Type: application/json
+
+{
+   "nombre": "Jorgito",
+  "apellido": "Villamillamil",
+  "num_documento": "80978543",
+  "fecha_nacimiento": "2000-01-01",
+  "telefono": "2350987",
+}
+
+
+###
+DELETE http://localhost:3000/api/v1/pacientes/655a7d3ba85405e79ace75af HTTP/1.1
