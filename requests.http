@@ -1,32 +1,32 @@
 ###
-POST http://localhost:3000/api/v1/pacientes HTTP/1.1
+POST http://localhost:2000/api/v1/pacientes HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Pepe",
+    "nombre": "Gru",
     "apellido": "Perez",
-    "num_documento": "80978543",
+    "num_documento": "90978543",
     "fecha_nacimiento": "2001-08-07",
     "telefono": "2350987"
 }
 
 ###
-GET http://localhost:3000/api/v1/pacientes HTTP/1.1
+GET http://localhost:2000/api/v1/pacientes HTTP/1.1
 
 ###
-GET http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+GET http://localhost:2000/api/v1/pacientes/655b4d9b1618f116a99eac91 HTTP/1.1
 
 ###
-PUT http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+PUT  http://localhost:2000/api/v1/pacientes/655b4d9b1618f116a99eac91 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Miguel",
-    "apellido": "Villamil",
-    "num_documento": "80978543",
-    "fecha_nacimiento": "01/01/2000",
-    "telefono": "2350987"
+  "nombre": "GruN",
+  "apellido": "Perez",
+  "num_documento": "90978543",
+  "fecha_nacimiento": "2001-08-07T00:00:00.000Z",
+  "telefono": "2350987"
 }
 
 ###
-DELETE http://localhost:3000/api/v1/pacientes/6541c90a1a69258105b1783d HTTP/1.1
+DELETE http://localhost:2000/api/v1/pacientes/655a771dd19ad177def474e6 HTTP/1.1

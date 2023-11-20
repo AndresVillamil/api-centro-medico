@@ -36,12 +36,14 @@ router.get('/pacientes/:id', (req, res) => {
 
 
 //update un paciente
-router.put('/pacientes/:id', (req, res) => {
+router.put('/pacientes/:id', async (req, res) => {
     //res.send("crear paciente")
     const { id } = req.params;
-    const { nombre, apellido, num_documento, fecha_nacimiento, telefono } = req.body
-    pacienteSchema
-        .updateOne({ _id: id},{ $set:{nombre, apellido, num_documento, fecha_nacimiento, telefono}})
+    //const { nombre, apellido, num_documento, fecha_nacimiento, telefono } = req.body
+    const body= req.body
+    await pacienteSchema
+        .findByIdAndUpdate(id, body , { useFindAndModify: true })
+        //.updateOne({ _id: id},{ $set:{nombre, apellido, num_documento, fecha_nacimiento, telefono}})
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}))
 })
